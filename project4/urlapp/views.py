@@ -1,9 +1,8 @@
 from django.shortcuts import render
 
-# Create your views here.
-def about(request,id):
-    return render(request, 'url.html',{'id':id})
-
+def about(request, id):
+    return render(request, 'url.html', {'id': id})
 
 def index(request):
-    return render(request,'url.html')
+    id = None  # Or you can set it to any default value
+    return render(request, 'url.html', {'id': id})
