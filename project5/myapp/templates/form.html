@@ -3,7 +3,7 @@
 {%block content%}
 <div style="width: 50%; height: 500px; margin: auto" class="pt-5">
     <h3>Movie Rating Form</h3>
-    <form method="post">
+    <form method="post" action="/first/about/">
         {% csrf_token %}
         <div class="mb-3">
             <label for="exampleInputName" class="form-label">Name</label>
@@ -24,5 +24,8 @@
         </select>
         <button type="submit" class="btn btn-primary mt-5">Submit</button>
     </form>
+
+
+
 </div>
 {%endblock%}
