@@ -21,9 +21,14 @@ def submit_form(request):
 
 #View Function for contactForm Form-Class
 def Django_forms(request):
-    form = contactForm(request.POST)
-    # print(request.POST)
-    if form.is_valid():
-        print(form.cleaned_data)
-
+    if request.method == 'POST':
+        form = contactForm(request.POST, request.FILES)
+        if form.is_valid():
+            file = form.cleaned_data['file']
+            with open('./myapp/uploads/' + file.name, 'wb+') as destination:
+                for chunk in file.chunks():
+                    destination.write(chunk)
+            print(form.cleaned_data)
+    else:
+        form = contactForm()
     return render(request,"django_forms.html",{'form':form})
