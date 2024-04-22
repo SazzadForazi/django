@@ -76,3 +76,25 @@ class StudentData(forms.Form):
     
     text = forms.CharField(
         widget=forms.TextInput, validators=[len_check])
+    
+
+
+class PasswordValidationForm(forms.Form):
+    name = forms.CharField(widget=forms.TextInput)
+    pwd = forms.CharField(widget=forms.PasswordInput)
+    confirm_password = forms.CharField(widget=forms.PasswordInput)  # Changed to CharField
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        val_name = cleaned_data.get('name')  # Use get() method to safely retrieve data
+        val_pass = cleaned_data.get('pwd')   # Use get() method to safely retrieve data
+        val_conpass = cleaned_data.get('confirm_password')  # Use get() method to safely retrieve data
+        
+        if val_conpass != val_pass:
+            raise forms.ValidationError('Password does not match')
+        
+        if len(val_name) < 15:
+            raise forms.ValidationError("Name must be at least 15 characters")
+
+            
+        
