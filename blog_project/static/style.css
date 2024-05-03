@@ -1,0 +1,22 @@
+.card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    color: #6c757d;
+}
+
+.badge {
+    margin-right: 5px;
+    font-size: 0.8rem;
+}
+
+.btn {
+    font-size: 0.9rem;
+}
