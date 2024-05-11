@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!--Flowbite CDN-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
     {% tailwind_css %}
 </head>
-<body>
-    {% block content %} 
-    
-    
-    {% endblock content %}
+<body class="bg-green-50">
+    <!-- Navbar -->
+    {% include "scripts/_nav.html" %}
+<div class="mx-10  mt-4">
+        {% block content %}
+        
+        
+        {% endblock content %}
+</div>
 </body>
 </html>
