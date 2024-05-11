@@ -10,4 +10,4 @@ def add_author(request):
             return redirect('add_authors')
     else:
         author_form = forms.AuthorForm()    
-    return render(request, 'add_authors.html', {'form' : author_form})
+    return render(request, 'add_authors.html', {'form' : author_form})      
