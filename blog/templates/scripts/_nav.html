@@ -1,11 +1,9 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
-    <div class="max-w-screen-xl mx-auto flex flex-wrap items-center justify-between p-4">
-        <a href="https://www.w3.org/assets/logos/w3c/w3c-no-bars.svg"
-            class="flex items-center space-x-3 rtl:space-x-reverse">
-            <!-- <img src="https://example.com/your-image.jpg" class="h-8" alt="Logo" /> -->
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <!-- <img src="" class="h-8" alt="Logo" /> -->
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
         </a>
-
         <button data-collapse-toggle="navbar-default" type="button"
             class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-default" aria-expanded="false">
@@ -30,7 +28,7 @@
                         aria-current="page">Logout</a>
                 </li>
                 <li>
-                    <a href=""
+                    <a href="{% url 'create-post' %}"
                         class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500"
                         aria-current="page">Create Post</a>
                 </li>

@@ -5,7 +5,7 @@ from user.managers import UserManager
 # Create your models here.
 
 class User(TimeStampMixin, AbstractUser):
-  phone = models.CharField(max_length=12, null=True, blank=True)
+  # phone = models.CharField(max_length=12, null=True, blank=True)
   email = models.EmailField(max_length=255, unique=True)
 
   objects = UserManager()
