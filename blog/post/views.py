@@ -1,8 +1,10 @@
+from django.forms import BaseModelForm
+from django.http import HttpResponse
 from django.shortcuts import render
 from post.models import Post
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.views.generic import CreateView,DetailView
+from django.views.generic import CreateView,DetailView,UpdateView
 from post.forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
@@ -25,3 +27,21 @@ class PostDetailView(DetailView):
   template_name = 'postDetail.html'
   context_object_name = 'post'
   lookup_field = 'slug'    
+
+
+class UpdatePostView(LoginRequiredMixin,UpdateView):
+  queryset= Post.objects.all()
+  form_class = PostForm
+  template_name = 'createPost.html'
+  lookup_field = 'slug'
+  success_url = reverse_lazy('index')
+  
+  def form_valid(self, form):
+     messages.success(self.request, "Post Updated successfully")
+     return super().form_valid(form)
+   
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['title'] = 'Update Post'
+    context['button'] = 'Update'
+    return context
