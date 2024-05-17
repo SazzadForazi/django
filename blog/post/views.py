@@ -4,7 +4,7 @@ from django.shortcuts import render
 from post.models import Post
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.views.generic import CreateView,DetailView,UpdateView
+from django.views.generic import CreateView,DetailView,UpdateView,DeleteView
 from post.forms import PostForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
@@ -45,3 +45,10 @@ class UpdatePostView(LoginRequiredMixin,UpdateView):
     context['title'] = 'Update Post'
     context['button'] = 'Update'
     return context
+  
+  
+class DeletePostView(DeleteView):
+  model = Post
+  queryset = Post.objects.all()
+  lookup_field = 'slug'
+  success_url = reverse_lazy('index')
