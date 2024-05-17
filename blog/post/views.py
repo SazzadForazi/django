@@ -1,10 +1,12 @@
 from django.shortcuts import render
+from post.models import Post
 from django.urls import reverse_lazy
 from django.contrib import messages
-from django.views.generic import CreateView
+from django.views.generic import CreateView,DetailView
 from post.forms import PostForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 # Create your views here.
-class CreatePostView(CreateView):
+class CreatePostView(LoginRequiredMixin,CreateView):
     template_name='createPost.html'
     form_class = PostForm
     success_url = reverse_lazy('index')
@@ -17,3 +19,9 @@ class CreatePostView(CreateView):
        context['title'] = 'Create a Post'
        context['button'] = 'Create'
        return context
+     
+class PostDetailView(DetailView):
+  model = Post
+  template_name = 'postDetail.html'
+  context_object_name = 'post'
+  lookup_field = 'slug'    
